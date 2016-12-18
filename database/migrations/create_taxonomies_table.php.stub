@@ -56,7 +56,6 @@ class CreateTaxonomiesTable extends Migration
                 ->onDelete('cascade');
 
             $table->string('taxonomy');
-            $table->string('desc');
 
             $table->integer('parent')->unsigned()->default(0);
 

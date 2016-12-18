@@ -17,12 +17,18 @@ We've transferred this package to a new owner and therefor updated the namespace
 Require the package from your `composer.json` file
 
 ```php
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/d3radicated/Laravel-Taxonomies"
+    }
+],
 "require": {
 	"lecturize/laravel-taxonomies": "dev-master"
 }
 ```
 
-and run `$ composer update` or both in one with `$ composer require lecturize/laravel-taxonomies`.
+and run `$ composer update`.
 
 Next register the service provider and (optional) facade to your `config/app.php` file
 
@@ -30,6 +36,7 @@ Next register the service provider and (optional) facade to your `config/app.php
 'providers' => [
     // Illuminate Providers ...
     // App Providers ...
+    Cviebrock\EloquentSluggable\ServiceProvider::class,
     Lecturize\Taxonomies\TaxonomiesServiceProvider::class
 ];
 ```
@@ -37,6 +44,7 @@ Next register the service provider and (optional) facade to your `config/app.php
 ## Configuration & Migration
 
 ```bash
+$ php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
 $ php artisan vendor:publish --provider="Lecturize\Taxonomies\TaxonomiesServiceProvider"
 ```
 
